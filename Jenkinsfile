@@ -1,6 +1,6 @@
 node {
 	stage ('SCM checkout'){
-		git "https://github.com/shree665/selenium-test"
+		git branch: 'main', credentialsId: 'mygithub', url: 'https://github.com/shree665/selenium-test.git'
 		}
 	stage ('Build'){
     	dir("comtest") {
