@@ -1,4 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: com.coffeetech.selenium.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.22 s - in com.coffeetech.selenium.AppTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 193.509 s <<< FAILURE! - in com.coffeetech.selenium.AppTest
+com.coffeetech.selenium.AppTest  Time elapsed: 193.509 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: '4.1.2', revision: '9a5a329c5a'
+System info: host: 'C02VN0F4HTDG', ip: 'fe80:0:0:0:b:1bd0:1f4b:38e5%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:debuggerAddress: true, moz:firefoxOptions: {}, platformName: linux}], desiredCapabilities=Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:debuggerAddress: true, moz:firefoxOptions: {}, platformName: Linux}}]
+Capabilities {}
+	at com.coffeetech.selenium.AppTest.openBrowser(AppTest.java:30)
+Caused by: java.io.UncheckedIOException: java.io.IOException: Stream closed
+	at com.coffeetech.selenium.AppTest.openBrowser(AppTest.java:30)
+Caused by: java.io.IOException: Stream closed
+

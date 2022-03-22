@@ -20,7 +20,7 @@ public class AppTest {
 	private static final Logger logger = LoggerFactory.getLogger(AppTest.class);
 	
 	private static WebDriver driver;
-	private static String hubUrl = "http://localhost:30003";
+	private static String hubUrl = "http://10.1.0.127:5555/";
 	
 	@BeforeAll
 	public static void openBrowser() throws MalformedURLException {
