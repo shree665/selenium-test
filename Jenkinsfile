@@ -22,8 +22,6 @@ podTemplate(containers: [
 	  container('maven') {
 	    sh 'pwd'
 	    sh 'ls -lathr'
-	    sh 'chmod 755 geckodriver'
-	    sh 'ls -lathr'
 	    sh 'mvn clean install'
        }
 	}

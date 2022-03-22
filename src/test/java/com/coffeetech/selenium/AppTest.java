@@ -2,12 +2,16 @@ package com.coffeetech.selenium;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,14 +19,15 @@ public class AppTest {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AppTest.class);
 	
-	private static FirefoxDriver driver;
-	//private WebElement element;
+	private static WebDriver driver;
+	private static String hubUrl = "http://localhost:30003";
 	
 	@BeforeAll
-	public static void openBrowser() {
+	public static void openBrowser() throws MalformedURLException {
 		System.setProperty("webdriver.gecko.driver", "geckodriver");
-		driver = new FirefoxDriver();
-		//driver.manage().window().maximize();
+		FirefoxOptions options = new FirefoxOptions();
+		options.setPlatformName("Linux");
+		driver = new RemoteWebDriver(new URL(hubUrl), options);
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
