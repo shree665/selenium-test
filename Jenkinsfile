@@ -6,7 +6,7 @@ podTemplate(containers: [
         args: '99d'
         )
   ]) {
-  node (POD_LEBEL) {
+  node (POD_LABEL) {
     stage('Check Maven. Java Version: 8') {
           sh 'echo Before Maven Java 8'
           container('mavenjdk8'){
