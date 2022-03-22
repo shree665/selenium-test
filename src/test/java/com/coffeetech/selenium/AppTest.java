@@ -10,6 +10,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
@@ -27,7 +28,8 @@ public class AppTest {
 		System.setProperty("webdriver.gecko.driver", "geckodriver");
 		FirefoxOptions options = new FirefoxOptions();
 		options.setPlatformName("Linux");
-		driver = new RemoteWebDriver(new URL(hubUrl), options);
+		//driver = new RemoteWebDriver(new URL(hubUrl), options);
+		driver = new FirefoxDriver(options);
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
