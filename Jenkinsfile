@@ -26,5 +26,6 @@ podTemplate(containers: [
 		    sh 'mvn clean install'
 	       }
 		}
-  }
+     }
+   }
 }
