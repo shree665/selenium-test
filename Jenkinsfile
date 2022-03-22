@@ -7,19 +7,20 @@ podTemplate(containers: [
         )
   ]) {
   node (POD_LABEL) {
-    stage('Check Maven. Java Version: 8') {
+    stage('Check Version') {
           sh 'echo Before Maven Java 8'
-          container('mavenjdk8'){
+          container('maven'){
                 sh 'mvn -v'
                 sh 'java -version'
            }
+           sh 'echo After Maven Java 8'
       }
 	stage ('SCM checkout'){
 		git branch: 'main', credentialsId: 'mygithub', url: 'https://github.com/shree665/selenium-test.git'
 	}
 	stage ('Build'){
 	  container('maven') {
-	    sh "mvn clean install"
+	    sh 'mvn clean install'
        }
 	}
   }
