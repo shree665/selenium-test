@@ -21,7 +21,9 @@ podTemplate(containers: [
 	stage ('Build'){
 	  container('maven') {
 	    sh 'pwd'
-	    sh 'ls'
+	    sh 'ls -lathr'
+	    sh 'chmod 755 geckodriver'
+	    sh 'ls -lathr'
 	    sh 'mvn clean install'
        }
 	}
