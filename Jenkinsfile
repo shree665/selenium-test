@@ -18,7 +18,7 @@ podTemplate(containers: [
 	stage ('SCM checkout'){
 		git branch: 'main', credentialsId: 'mygithub', url: 'https://github.com/shree665/selenium-test.git'
 	}
-	 wrap([$class: 'Xvfb']) {
+	 wrap([$class: 'xvfb/WEB-INF/lib/xvfb.jar']) {
 		stage ('Build'){
 		  container('maven') {
 		    sh 'pwd'
