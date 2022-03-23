@@ -1,13 +1,7 @@
 podTemplate(containers: [
     containerTemplate(
         name: 'maven', 
-        image: '670274357914.dkr.ecr.us-gov-west-1.amazonaws.com/maven:3.8.4-openjdk8-slim-buster', 
-        command: 'sleep', 
-        args: '99d'
-        ),
-    containerTemplate(
-        name: 'selenium-firefox', 
-        image: 'selenium/standalone-firefox:latest', 
+        image: 'selenium-maven:latest', 
         command: 'sleep', 
         args: '99d'
         )
