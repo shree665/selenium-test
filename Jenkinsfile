@@ -10,8 +10,8 @@ podTemplate(containers: [
     stage('Check Version') {
           sh 'echo Before Maven Java 8'
           container('maven'){
-                sh 'mvn -v'
-                sh 'java -version'
+                sh 'sudo mvn -v'
+                sh 'sudo java -version'
            }
            sh 'echo After Maven Java 8'
       }
