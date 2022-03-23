@@ -28,6 +28,7 @@ public class AppTest {
 		System.setProperty("webdriver.gecko.driver", "geckodriver");
 		FirefoxOptions options = new FirefoxOptions();
 		options.setPlatformName("Linux");
+		options.setHeadless(true);
 		//driver = new RemoteWebDriver(new URL(hubUrl), options);
 		driver = new FirefoxDriver(options);
 		driver.manage().deleteAllCookies();
