@@ -7,6 +7,14 @@ podTemplate(containers: [
         )
   ]) {
   node (POD_LABEL) {
+    stage('Check Version') {
+          sh 'echo Before Maven Java 8'
+          container('maven'){
+                sh 'mvn -v'
+                sh 'java -version'
+           }
+           sh 'echo After Maven Java 8'
+      }
 	stage ('SCM checkout'){
 		git branch: 'main', credentialsId: 'mygithub', url: 'https://github.com/shree665/selenium-test.git'
 	}
