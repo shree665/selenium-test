@@ -4,6 +4,12 @@ podTemplate(containers: [
         image: '670274357914.dkr.ecr.us-gov-west-1.amazonaws.com/maven:3.8.4-openjdk8-slim-buster', 
         command: 'sleep', 
         args: '99d'
+        ),
+    containerTemplate(
+        name: 'selenium-firefox', 
+        image: 'selenium/standalone-firefox:latest', 
+        command: 'sleep', 
+        args: '99d'
         )
   ]) {
   node (POD_LABEL) {
@@ -18,14 +24,12 @@ podTemplate(containers: [
 	stage ('SCM checkout'){
 		git branch: 'main', credentialsId: 'mygithub', url: 'https://github.com/shree665/selenium-test.git'
 	}
-	 wrap([$class: 'xvfb']) {
-		stage ('Build'){
-		  container('maven') {
-		    sh 'pwd'
-		    sh 'ls -lathr'
-		    sh 'mvn clean install'
-	       }
-		}
-     }
+	stage ('Build'){
+	  container('maven') {
+	    sh 'pwd'
+	    sh 'ls -lathr'
+	    sh 'mvn clean install'
+       }
+	}
    }
 }
